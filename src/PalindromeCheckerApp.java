@@ -1,20 +1,24 @@
+import java.util.Stack;
+
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
         String str = "madam";
-        // UC4: Character Array Based Palindrome Check
-        char[] arr = str.toCharArray();
+
+        Stack<Character> stack = new Stack<>();
+
+        // Push all characters into stack
+        for (int i = 0; i < str.length(); i++) {
+            stack.push(str.charAt(i));
+        }
+
         boolean isPalindrome = true;
 
-        int start = 0;
-        int end = arr.length - 1;
-
-        while (start < end) {
-            if (arr[start] != arr[end]) {
+        // Compare by popping
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
-            start++;
-            end--;
         }
 
         if (isPalindrome) {
