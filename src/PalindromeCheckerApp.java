@@ -1,29 +1,24 @@
-import java.util.*;
-
 public class PalindromeCheckerApp {
+
+    public static boolean isPalindrome(String str, int start, int end) {
+        // Base case
+        if (start >= end) {
+            return true;
+        }
+
+        // Check mismatch
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+
+        // Recursive call
+        return isPalindrome(str, start + 1, end - 1);
+    }
+
     public static void main(String[] args) {
         String str = "madam";
 
-        LinkedList<Character> list = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
-
-        // Add characters to LinkedList and Stack
-        for (char c : str.toCharArray()) {
-            list.add(c);
-            stack.push(c);
-        }
-
-        boolean isPalindrome = true;
-
-        // Compare LinkedList (forward) with Stack (reverse)
-        for (char c : list) {
-            if (c != stack.pop()) {
-                isPalindrome = false;
-                break;
-            }
-        }
-
-        if (isPalindrome) {
+        if (isPalindrome(str, 0, str.length() - 1)) {
             System.out.println("Palindrome");
         } else {
             System.out.println("Not Palindrome");
