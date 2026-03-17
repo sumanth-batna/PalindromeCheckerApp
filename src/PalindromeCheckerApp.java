@@ -1,7 +1,7 @@
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
         String str = "madam";
-
+        // UC4: Character Array Based Palindrome Check
         char[] arr = str.toCharArray();
         boolean isPalindrome = true;
 
